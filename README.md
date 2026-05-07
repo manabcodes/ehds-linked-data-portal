@@ -185,4 +185,4 @@ SELECT (COUNT(DISTINCT ?p) AS ?n) WHERE {
 
 ## Acknowledgements
 
-This work was supported by the HARNESS project (Horizon Europe grant 101169409) and the MALTA project (PID2024-159504OB-I00, MICIU/AEI). All data is synthetic; no real patient records are included. Released under GNU GPL v3.
+This work was supported by the HARNESS project (Horizon Europe grant 101169409) and the MALTA project (PID2024-159504OB-I00, MICIU/AEI). All data is synthetic; no real patient records are included. Released under the the Creative Commons Attribution 4.0 International licence.
