@@ -1,4 +1,4 @@
-# EHDS Linked Health Data Portal
+# EHDS-Compliant Open Linked Health Data Portal for Benchmarking Web AI Agents
 
 An open benchmark resource for evaluating web AI agents in the context of the European Health Data Space (EHDS), established by Regulation (EU) 2025/327. The portal combines a synthetic FHIR-on-RDF clinical knowledge graph, a HealthDCAT-AP catalogue with machine-readable ODRL usage policies, and a reusable Model Context Protocol (MCP) connector — all openly accessible at **[https://mcp.linkeddata.es](https://mcp.linkeddata.es)**.
 
