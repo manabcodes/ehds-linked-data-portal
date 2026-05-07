@@ -573,6 +573,11 @@ LANDING_HTML = """<!DOCTYPE html>
       <a href="/sparql/">Open SPARQL UI</a>
     </div>
     <div class="card">
+      <h2>Supplements</h2>
+      <p>Benchmark queries, evaluation harness, FHIR-to-RDF pipeline, and annotation guide — all files from the paper.</p>
+      <a href="/supplements">Browse files</a>
+    </div>
+    <div class="card">
       <h2>RAG Vector Store</h2>
       <p>Download the pre-built ChromaDB vector store for RAG-condition evaluation.</p>
       <a href="/rag">Download ChromaDB</a>
@@ -959,6 +964,209 @@ async function runQuery() {
 </script>
 </body>
 </html>"""
+## Changes to mcp/server.py
+## Two additions: a SUPPLEMENTS_HTML page and a /supplements route.
+## Everything else in server.py is unchanged.
+
+# ─────────────────────────────────────────────────────────────
+# 1.  Add this constant near SPARQL_HTML / LANDING_HTML
+# ─────────────────────────────────────────────────────────────
+
+SUPPLEMENTS_HTML = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supplements — EHDS Portal</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         background: #f8fafc; color: #1e293b; }
+  header { background: #0f172a; color: white; padding: 1rem 1.5rem;
+           display: flex; align-items: center; gap: 1rem; }
+  header a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
+  header h1 { font-size: 1.1rem; font-weight: 600; }
+  main { max-width: 860px; margin: 2rem auto; padding: 0 1.5rem; }
+  .intro { font-size: 0.9rem; color: #64748b; margin-bottom: 1.5rem; }
+  .file-list { background: white; border: 1px solid #e2e8f0; border-radius: 10px;
+               overflow: hidden; }
+  .file-row { display: flex; align-items: center; gap: 1rem;
+              padding: 0.85rem 1.2rem; border-bottom: 1px solid #f1f5f9; }
+  .file-row:last-child { border-bottom: none; }
+  .file-row:hover { background: #f8fafc; }
+  .icon { font-size: 1.3rem; flex-shrink: 0; width: 2rem; text-align: center; }
+  .meta { flex: 1; min-width: 0; }
+  .meta .name { font-weight: 600; font-size: 0.92rem; color: #0f172a; }
+  .meta .desc { font-size: 0.82rem; color: #64748b; margin-top: 0.15rem;
+                white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .meta .path { font-size: 0.75rem; color: #94a3b8; font-family: monospace;
+                margin-top: 0.1rem; }
+  .size  { font-size: 0.8rem; color: #94a3b8; flex-shrink: 0; width: 4.5rem;
+           text-align: right; }
+  .dl { flex-shrink: 0; }
+  .dl a { display: inline-block; background: #0f172a; color: white;
+          padding: 0.35rem 0.85rem; border-radius: 6px; font-size: 0.82rem;
+          text-decoration: none; }
+  .dl a:hover { background: #1e293b; }
+  .section-label { font-size: 0.75rem; font-weight: 700; color: #94a3b8;
+                   text-transform: uppercase; letter-spacing: 0.06em;
+                   padding: 0.5rem 1.2rem 0.3rem;
+                   background: #f8fafc; border-bottom: 1px solid #f1f5f9; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">← EHDS Portal</a>
+  <h1>Supplements</h1>
+</header>
+<main>
+  <p class="intro">
+    Supplementary materials for the ISWC 2025 Resource Track paper.
+    All files are part of the
+    <a href="https://github.com/manabcodes/H-Mantis" style="color:#0369a1">ehds-linked-data-portal</a>
+    repository and released under GNU GPL v3.
+  </p>
+
+  <div class="file-list">
+
+    <div class="section-label">Documentation</div>
+
+    <div class="file-row">
+      <div class="icon">📄</div>
+      <div class="meta">
+        <div class="name">Dataset Description</div>
+        <div class="desc">30 clinical cohorts, ODRL policies, HealthDCAT-AP catalogue schema, named graph structure, and infrastructure overview</div>
+        <div class="path">dataset_description.pdf</div>
+      </div>
+      <div class="size">—</div>
+      <div class="dl"><a href="/supplements/dataset_description.pdf">Download</a></div>
+    </div>
+
+    <div class="file-row">
+      <div class="icon">📄</div>
+      <div class="meta">
+        <div class="name">Annotation Guide</div>
+        <div class="desc">Atomic fact extraction protocol, completeness and hallucination scoring rules, and five worked examples with highlighted responses</div>
+        <div class="path">annotation_guide.pdf</div>
+      </div>
+      <div class="size">—</div>
+      <div class="dl"><a href="/supplements/annotation_guide.pdf">Download</a></div>
+    </div>
+
+    <div class="section-label">Evaluation harness</div>
+
+    <div class="file-row">
+      <div class="icon">🐍</div>
+      <div class="meta">
+        <div class="name">evaluation_50_queries.py</div>
+        <div class="desc">Runs all 50 benchmark queries under baseline, RAG, and MCP conditions; writes per-query JSON results</div>
+        <div class="path">eval/evaluation_50_queries.py</div>
+      </div>
+      <div class="size">—</div>
+      <div class="dl"><a href="/supplements/evaluation_50_queries.py">Download</a></div>
+    </div>
+
+    <div class="file-row">
+      <div class="icon">🐍</div>
+      <div class="meta">
+        <div class="name">benchmark.py</div>
+        <div class="desc">50 benchmark queries with embedded SPARQL ground-truth derivations; authoritative source for all ground truth values</div>
+        <div class="path">eval/benchmark.py</div>
+      </div>
+      <div class="size">—</div>
+      <div class="dl"><a href="/supplements/benchmark.py">Download</a></div>
+    </div>
+
+    <div class="file-row">
+      <div class="icon">📊</div>
+      <div class="meta">
+        <div class="name">benchmark.csv</div>
+        <div class="desc">Flat CSV version of the benchmark ground truth, one row per query</div>
+        <div class="path">eval/benchmark.csv</div>
+      </div>
+      <div class="size">—</div>
+      <div class="dl"><a href="/supplements/benchmark.csv">Download</a></div>
+    </div>
+
+    <div class="section-label">Data pipeline</div>
+
+    <div class="file-row">
+      <div class="icon">🐍</div>
+      <div class="meta">
+        <div class="name">fhir_to_rdf.py</div>
+        <div class="desc">Converts Synthea FHIR R4 JSON bundles to RDF Turtle, preserving Patient, Condition, Observation, MedicationRequest, and Encounter resources</div>
+        <div class="path">fhir_to_rdf.py</div>
+      </div>
+      <div class="size">—</div>
+      <div class="dl"><a href="/supplements/fhir_to_rdf.py">Download</a></div>
+    </div>
+
+    <div class="section-label">MCP connector</div>
+
+    <div class="file-row">
+      <div class="icon">🐍</div>
+      <div class="meta">
+        <div class="name">server.py</div>
+        <div class="desc">MCP server exposing seven typed tools over SSE; compatible with Claude, mcphost, DeepSeek, and the Python MCP SDK</div>
+        <div class="path">mcp/server.py</div>
+      </div>
+      <div class="size">—</div>
+      <div class="dl"><a href="/supplements/server.py">Download</a></div>
+    </div>
+
+  </div>
+</main>
+</body>
+</html>"""
+
+
+# ─────────────────────────────────────────────────────────────
+# 2.  Inside main_sse(), add two things:
+#
+#     a) A handler that serves files from the repo root
+#     b) Two new routes — one for the browser page, one for file downloads
+#
+#     Add these immediately after the existing route definitions,
+#     before the Starlette() constructor call.
+# ─────────────────────────────────────────────────────────────
+
+# --- paste this block inside main_sse(), after the existing handlers ---
+
+import pathlib
+
+# Absolute path to the repository root (one level up from mcp/)
+REPO_ROOT = pathlib.Path("/home/meem/ehds-linked-data-portal")
+
+
+# Map URL filename → filesystem path relative to repo root.
+# Add any future supplement files here.
+SUPPLEMENT_FILES = {
+    "dataset_description.pdf":   REPO_ROOT / "dataset_description.pdf",
+    "annotation_guide.pdf":      REPO_ROOT / "annotation_guide.pdf",
+    "evaluation_50_queries.py":  REPO_ROOT / "eval" / "evaluation_50_queries.py",
+    "benchmark.py":              REPO_ROOT / "eval" / "benchmark.py",
+    "benchmark.csv":             REPO_ROOT / "eval" / "benchmark.csv",
+    "fhir_to_rdf.py":            REPO_ROOT / "fhir_to_rdf.py",
+    "server.py":                 REPO_ROOT / "mcp" / "server.py",
+}
+
+MEDIA_TYPES = {
+    ".pdf": "application/pdf",
+    ".py":  "text/plain; charset=utf-8",
+    ".csv": "text/csv; charset=utf-8",
+}
+
+# --- then add these two entries to the routes list inside Starlette() ---
+
+#   Route("/supplements",            endpoint=supplements_browser),
+#   Route("/supplements/{filename}", endpoint=supplements_file),
+
+
+# ─────────────────────────────────────────────────────────────
+# 3.  In LANDING_HTML, add this card after the visualization card
+#     (copy into the .cards div, after the Knowledge Graph card)
+# ─────────────────────────────────────────────────────────────
+
 
 
 def main_sse(host: str = "0.0.0.0", port: int = 48243):
@@ -973,6 +1181,18 @@ def main_sse(host: str = "0.0.0.0", port: int = 48243):
 
 
     sse = SseServerTransport("/messages/")
+
+    async def supplements_browser(request):
+        return HTMLResponse(SUPPLEMENTS_HTML)
+
+    async def supplements_file(request):
+        filename = request.path_params["filename"]
+        filepath = SUPPLEMENT_FILES.get(filename)
+        if filepath is None or not filepath.exists():
+            return Response("Not found", status_code=404)
+        suffix = filepath.suffix.lower()
+        media_type = MEDIA_TYPES.get(suffix, "application/octet-stream")
+        return FileResponse(str(filepath), media_type=media_type, filename=filename)
 
     async def handle_sse(request):
         async with sse.connect_sse(
@@ -1019,6 +1239,8 @@ def main_sse(host: str = "0.0.0.0", port: int = 48243):
             Route("/sparql",  endpoint=sparql_proxy),
             Route("/sparql/", endpoint=sparql_ui),
             Route("/connector",     endpoint=handle_sse),
+            Route("/supplements",            endpoint=supplements_browser),   # ← add
+            Route("/supplements/{filename}", endpoint=supplements_file),      # ← add
             Route("/rag",     endpoint=rag_download),
             Mount("/messages/", app=sse.handle_post_message),
             Route("/visualization",     endpoint=lambda r: HTMLResponse(VIZ_HTML)),
