@@ -1,0 +1,51 @@
+id,category,query,ground_truth
+D1,discovery,What datasets are available in this data space?,Synthetic Alzheimer's Disease Cohort|Synthetic Anemia Cohort|Synthetic Anxiety Disorder Cohort|Synthetic Asthma Cohort|Synthetic Atrial Fibrillation Cohort|Synthetic Breast Cancer Cohort|Synthetic COPD Cohort|Synthetic Chronic Kidney Disease Cohort|Synthetic Chronic Pain Cohort|Synthetic Colorectal Cancer Cohort|Synthetic Dementia Cohort|Synthetic Essential Hypertension Cohort|Synthetic Heart Failure Cohort|Synthetic Hyperlipidemia Cohort|Synthetic Hypothyroidism Cohort|Synthetic Ischaemic Heart Disease Cohort|Synthetic Metabolic Syndrome Cohort|Synthetic Myocardial Infarction Cohort|Synthetic Obesity Cohort|Synthetic Obstructive Sleep Apnea Cohort|Synthetic Osteoarthritis Cohort|Synthetic Osteoporosis Cohort|Synthetic PTSD Cohort|Synthetic Prediabetes Cohort|Synthetic Prostate Cancer Cohort|Synthetic Rheumatoid Arthritis Cohort|Synthetic Stroke Cohort|Synthetic Substance Use Disorder Cohort|Synthetic Type 2 Diabetes Cohort|Synthetic Urinary Tract Infection Cohort
+D2,discovery,How many datasets are available in this data space?,30
+D3,discovery,Which datasets cover cardiovascular conditions?,Synthetic Heart Failure Cohort|Synthetic Stroke Cohort|Synthetic Myocardial Infarction Cohort|Synthetic Ischaemic Heart Disease Cohort|Synthetic Atrial Fibrillation Cohort
+D4,discovery,Which datasets cover mental health conditions?,Synthetic Anxiety Disorder Cohort|Synthetic PTSD Cohort|Synthetic Dementia Cohort
+D5,discovery,Which datasets cover oncology conditions?,Synthetic Breast Cancer Cohort|Synthetic Prostate Cancer Cohort|Synthetic Colorectal Cancer Cohort
+D6,discovery,What data standard is used for the clinical data?,FHIR R4
+D7,discovery,Which datasets have temporal coverage starting before 2005?,Synthetic Anemia Cohort|2000-01-01|Synthetic Asthma Cohort|2000-01-01|Synthetic COPD Cohort|2000-01-01|Synthetic Type 2 Diabetes Cohort|2000-01-01|Synthetic Hyperlipidemia Cohort|2000-01-01|Synthetic Essential Hypertension Cohort|2000-01-01|Synthetic Hypothyroidism Cohort|2000-01-01|Synthetic Metabolic Syndrome Cohort|2000-01-01|Synthetic Obesity Cohort|2000-01-01|Synthetic Prediabetes Cohort|2000-01-01|Synthetic Obstructive Sleep Apnea Cohort|2000-01-01|Synthetic Urinary Tract Infection Cohort|2000-01-01|Synthetic Alzheimer's Disease Cohort|2003-01-01|Synthetic Chronic Kidney Disease Cohort|2003-01-01|Synthetic Osteoporosis Cohort|2003-01-01|Synthetic Rheumatoid Arthritis Cohort|2003-01-01
+D8,discovery,Which datasets end before 2025?,Synthetic Asthma Cohort|2023-12-31|Synthetic COPD Cohort|2023-12-31|Synthetic Obstructive Sleep Apnea Cohort|2023-12-31|Synthetic Urinary Tract Infection Cohort|2023-12-31
+D9,discovery,Are there any datasets related to respiratory conditions?,Synthetic Asthma Cohort|Synthetic COPD Cohort|Synthetic Obstructive Sleep Apnea Cohort
+D10,discovery,How many patients are in the dementia cohort?,0
+P1,policy,What are the permitted uses of the diabetes dataset?,reproduce|ResearchAndDevelopment|distribute|ResearchAndDevelopment
+P2,policy,Can I use the hypertension dataset to train a commercial AI model?,use|CommercialPurpose|re-identify
+P3,policy,Which datasets require ethics approval before use?,Synthetic Dementia Cohort|Synthetic Anxiety Disorder Cohort|Synthetic PTSD Cohort
+P4,policy,Which datasets permit clinical care use?,Synthetic Heart Failure Cohort|Synthetic Stroke Cohort|Synthetic Myocardial Infarction Cohort|Synthetic Ischaemic Heart Disease Cohort|Synthetic Atrial Fibrillation Cohort
+P5,policy,Is re-identification of patients allowed on any dataset?,Synthetic Type 2 Diabetes Cohort|Synthetic Essential Hypertension Cohort|Synthetic Metabolic Syndrome Cohort|Synthetic Obesity Cohort|Synthetic Hyperlipidemia Cohort|Synthetic Prediabetes Cohort|Synthetic Hypothyroidism Cohort|Synthetic Anemia Cohort|Synthetic Heart Failure Cohort|Synthetic Stroke Cohort|Synthetic Myocardial Infarction Cohort|Synthetic Ischaemic Heart Disease Cohort|Synthetic Atrial Fibrillation Cohort|Synthetic Dementia Cohort|Synthetic Anxiety Disorder Cohort|Synthetic PTSD Cohort|Synthetic Alzheimer's Disease Cohort|Synthetic Osteoporosis Cohort|Synthetic Rheumatoid Arthritis Cohort|Synthetic Chronic Kidney Disease Cohort|Synthetic Breast Cancer Cohort|Synthetic Prostate Cancer Cohort|Synthetic Colorectal Cancer Cohort|Synthetic Osteoarthritis Cohort|Synthetic Substance Use Disorder Cohort|Synthetic Chronic Pain Cohort
+P6,policy,Which datasets require IRB approval?,Synthetic Breast Cancer Cohort|Synthetic Prostate Cancer Cohort|Synthetic Colorectal Cancer Cohort
+P7,policy,Which datasets require data destruction after use?,Synthetic Breast Cancer Cohort|Synthetic Prostate Cancer Cohort|Synthetic Colorectal Cancer Cohort|Synthetic Osteoarthritis Cohort
+P8,policy,Can I use the PTSD dataset for insurance risk modelling?,distribute|granted|use|CommercialPurpose|re-identify
+P9,policy,Which datasets prohibit law enforcement use?,Synthetic Substance Use Disorder Cohort|Synthetic Chronic Pain Cohort
+P10,policy,What licence do all datasets use?,4.0
+P11,policy,Which datasets can I use for both research and education?,
+P12,policy,Which datasets have time-limited access?,Synthetic Osteoarthritis Cohort
+P13,policy,What obligations apply when using the breast cancer dataset?,attribute|delete
+P14,policy,Which datasets permit derivation and sharing of derived datasets?,Synthetic Asthma Cohort|Synthetic COPD Cohort|Synthetic Obstructive Sleep Apnea Cohort|Synthetic Urinary Tract Infection Cohort
+P15,policy,Can I use the substance use disorder dataset for insurance purposes?,use
+P16,policy,Which datasets permit public health research?,
+P17,policy,How many patients across all datasets have withdrawn consent for AI training?,168
+P18,policy,Which datasets require notifying the data controller before use?,
+P19,policy,Which datasets can be freely redistributed for non-commercial purposes?,Synthetic Asthma Cohort|Synthetic COPD Cohort|Synthetic Obstructive Sleep Apnea Cohort|Synthetic Urinary Tract Infection Cohort
+P20,policy,How many distinct ODRL policies are defined in the catalogue?,8
+C1,clinical,What is the most common medication prescribed to patients in the diabetes cohort?,sodium fluoride 0.0272 MG/MG Oral Gel|38
+C2,clinical,How many female patients are in the PTSD cohort?,1
+C3,clinical,What is the SNOMED code for the condition in the hypertension dataset?,59621000
+C4,clinical,What observation types are recorded for stroke patients?,Cholesterol in HDL [Mass/volume] in Serum or Plasma|Body Height|Calcium [Mass/volume] in Blood|Hemoglobin A1c/Hemoglobin.total in Blood|Tobacco smoking status|Sodium [Moles/volume] in Blood|MCV [Entitic mean volume] in Red Blood Cells by Automated count|Urea nitrogen [Mass/volume] in Blood|Glucose [Mass/volume] in Blood|Carbon dioxide, total [Moles/volume] in Blood|Fall risk total [Morse Fall Scale]|Creatinine [Mass/volume] in Blood|Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma|Erythrocyte [DistWidth] in Blood by Automated count|Hematocrit [Volume Fraction] of Blood by Automated count|Potassium [Moles/volume] in Blood|Respiratory rate|Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay|Blood pressure panel with all children optional|Body Weight
+C5,clinical,What is the gender distribution in the obesity cohort?,female|25|male|15
+C6,clinical,What is the earliest birth year among patients in the alzheimers cohort?,1916
+C7,clinical,How many patients in the breast cancer cohort have withdrawn consent for AI training?,2
+C8,clinical,What medications are most commonly prescribed to hypertension patients?,sodium fluoride 0.0272 MG/MG Oral Gel|40|lisinopril 10 MG Oral Tablet|26|Acetaminophen 325 MG Oral Tablet|23|24 HR metoprolol succinate 100 MG Extended Release Oral Tablet|20|Clopidogrel 75 MG Oral Tablet|20
+C9,clinical,How many patients are in the dementia cohort?,0
+C10,clinical,What is the race distribution in the chronic pain cohort?,White|10
+X1,comparative,Which dataset has the most patients?,
+X2,comparative,Which dataset has the fewest patients?,
+X3,comparative,What is the total number of patients across all datasets?,573
+X4,comparative,Which dataset would be most appropriate for studying comorbid diabetes and hypertension?,Synthetic Metabolic Syndrome Cohort|Synthetic patients presenting with both Type 2 Diabetes and Essential Hypertension, representing core metabolic syndrome indicators.
+X5,comparative,Which datasets have the shortest temporal coverage?,Synthetic Chronic Pain Cohort|2015-01-01|2025-12-31|Synthetic Substance Use Disorder Cohort|2015-01-01|2025-12-31|Synthetic Anxiety Disorder Cohort|2010-01-01|2025-12-31
+X6,comparative,How many datasets share the same research-only policy?,8
+X7,comparative,Which policy group has the most datasets?,policy-p1-research-only|8
+X8,comparative,How many datasets require some form of approval before use?,2
+X9,comparative,Compare the temporal coverage of the mental health datasets.,Synthetic Dementia Cohort|2010-01-01|2025-12-31|Synthetic Anxiety Disorder Cohort|2010-01-01|2025-12-31|Synthetic PTSD Cohort|2010-01-01|2025-12-31
+X10,comparative,Which datasets cover conditions that commonly co-occur with diabetes?,Synthetic Essential Hypertension Cohort|Synthetic Metabolic Syndrome Cohort|Synthetic Obesity Cohort|Synthetic Hyperlipidemia Cohort|Synthetic Chronic Kidney Disease Cohort
