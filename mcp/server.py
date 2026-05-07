@@ -549,7 +549,7 @@ LANDING_HTML = """<!DOCTYPE html>
     <span class="badge">FHIR R4 on RDF</span>
     <span class="badge">ODRL policies</span>
     <span class="badge">MCP connector</span>
-    <span class="badge">GNU GPL v3</span>
+    <span class="badge">CC-BY-4.0</span>
   </div>
 </header>
 <main>
@@ -1024,7 +1024,7 @@ SUPPLEMENTS_HTML = """<!DOCTYPE html>
     Supplementary materials for the ISWC 2025 Resource Track paper.
     All files are part of the
     <a href="https://github.com/manabcodes/H-Mantis" style="color:#0369a1">ehds-linked-data-portal</a>
-    repository and released under GNU GPL v3.
+    repository and released under Creative Commons Attribution 4.0 International licence.
   </p>
 
   <div class="file-list">
