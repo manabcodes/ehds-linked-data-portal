@@ -549,7 +549,7 @@ LANDING_HTML = """<!DOCTYPE html>
     <span class="badge">FHIR R4 on RDF</span>
     <span class="badge">ODRL policies</span>
     <span class="badge">MCP connector</span>
-    <span class="badge">CC-BY 4.0</span>
+    <span class="badge">GNU GPL v3</span>
   </div>
 </header>
 <main>
